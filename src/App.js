@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state={
+    isLoading:true,
+    movie:[]
+  }
+  getMovies = async()=>{
+    const movies = await axios.get("http://yts-proxy.now.sh/list_movies.json")
+    console.log(movies)
+  }
+  // axios는 항상 빠르지 X=> 그래서 getMovies 에게 기다리라고(async) 하고 axios에게 뭘 기다리는 지 말함(await)
+  componentDidMount(){
+    this.getMovies()  
+  }
+  render(){
+    const {isLoading} = this.state;
+      return(
+        <div>{isLoading?"loading":"fail"}</div>
+
+      )
+  }
 }
 
-export default App;
+export default App
