@@ -1,24 +1,37 @@
 import React from 'react';
-import axios from "axios"
+import axios from "axios";
+import Movie from"./Movie";
 
 class App extends React.Component {
   state={
     isLoading:true,
-    movie:[]
+    movies:[]
   }
   getMovies = async()=>{
-    const movies = await axios.get("http://yts-proxy.now.sh/list_movies.json")
-    console.log(movies)
+    const {data:{data:{movies}}} = await axios.get("http://yts-proxy.now.sh/list_movies.json?sort_by=rating")
+    this.setState({movies, isLoading : false})
+    //원래는 {movie:movie}이지만 es6를 통해 축약가능, 하나는 state의 movies, 하나는 가져온 데이터에서 movies
   }
   // axios는 항상 빠르지 X=> 그래서 getMovies 에게 기다리라고(async) 하고 axios에게 뭘 기다리는 지 말함(await)
   componentDidMount(){
     this.getMovies()  
+    
   }
   render(){
-    const {isLoading} = this.state;
+    const {isLoading, movies } = this.state;
       return(
-        <div>{isLoading?"loading":"fail"}</div>
-
+          <div>
+            {isLoading?"loading":movies.map((movie) => {
+           
+            return <Movie 
+                      key={movie.id}
+                      id={movie.id} 
+                      year={movie.year} 
+                      title={movie.title} 
+                      summary={movie.summary} 
+                      poster={movie.medium_cover_image} />
+                    })}
+          </div>
       )
   }
 }
