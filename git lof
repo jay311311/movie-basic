@@ -1,0 +1,29 @@
+[33mcommit 767c67ece8ce5c524e7ba578c44e39a3383508a9[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: jay311311 <jay311311@gmail.com>
+Date:   Sat Jul 25 00:13:44 2020 +0900
+
+    react에서 사용될 html뼈대 구축
+
+[33mcommit 31b0f842a7303cc6255fdc0552f0aefeeb1d72ee[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: jay311311 <jay311311@gmail.com>
+Date:   Fri Jul 24 23:24:08 2020 +0900
+
+    API데이터를 사용
+
+[33mcommit 2b55d8e709c2dd75062ef4b7dda63f87558fabb6[m
+Author: jay311311 <jay311311@gmail.com>
+Date:   Fri Jul 24 00:01:06 2020 +0900
+
+    axious사용한 async & await
+
+[33mcommit b352c8b465eb64ac2ddf62465ae8bbe2b8e4729a[m
+Author: jay311311 <jay311311@gmail.com>
+Date:   Thu Jul 23 23:24:39 2020 +0900
+
+    fundamental of movie-basic
+
+[33mcommit 03ccb22e874d1a2fd4a000dca5743627b8996715[m
+Author: jay311311 <jay311311@gmail.com>
+Date:   Thu Jul 23 23:16:12 2020 +0900
+
+    Initialize project using Create React App
